@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priya Mondal — Portfolio</title>
+    <meta name="description" content="Full Stack Developer & Software Engineer">
+    <meta name="author" content="Priya Mondal">
+
+    <!-- Google Fonts: Space Grotesk + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== SPLASH SCREEN ===== -->
+    <div id="splash" style="position:fixed;inset:0;z-index:9999;overflow:hidden;">
+        <canvas id="splashCanvas" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+        <div
+            style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;font-family:'Space Grotesk',sans-serif;">
+            <h1 id="splashHeading"
+                style="font-size:clamp(1.8rem,5vw,3rem);font-weight:800;color:#fff;margin-bottom:2rem;letter-spacing:-.02em;">
+                Initializing <span
+                    style="background:linear-gradient(90deg,#7c3aed,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Macrocosm</span><span
+                    class="cursor2">|</span></h1>
+            <button id="enterBtn"
+                style="padding:.8rem 2.2rem;font-size:1rem;font-weight:700;background:linear-gradient(135deg,#7c3aed,#06b6d4);border:none;border-radius:3rem;color:#fff;cursor:pointer;letter-spacing:.04em;transition:all .3s;box-shadow:0 0 30px rgba(124,58,237,.5);font-family:'Space Grotesk',sans-serif;">Enter
+                the Universe</button>
+            <p
+                style="margin-top:1.5rem;font-size:.75rem;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;">
+                // priya.mondal &mdash; portfolio</p>
+        </div>
+    </div>
+
+
+    <!-- Star Field Background -->
+    <div class="star-field" id="starField"></div>
+    <!-- Nebula Orbs -->
+    <div class="nebula-orb orb-1"></div>
+    <div class="nebula-orb orb-2"></div>
+    <div class="nebula-orb orb-3"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>PM<span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#stack" class="nav-link">Stack</a>
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#achievements" class="nav-link">Honors</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="resume.html" target="_blank" class="nav-resume" id="resumeBtn">Resume</a>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="text-gradient">Priya Mondal</span>
+                </h1>
+                <p class="hero-role">
+                    <span class="role-prefix">$ </span><span class="typed-text" id="typedText"></span><span
+                        class="cursor">|</span>
+                </p>
+                <p class="hero-description">
+                    Driven by curiosity and consistency, I am passionate about learning new technologies and building
+                    efficient, real-world solutions. I enjoy turning ideas into code and challenges into opportunities.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/Priya28082004" target="_blank" class="social-link" title="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/priya-mondal-b58893323/" target="_blank" class="social-link"
+                        title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="mailto:mistymondal2004@gmail.com" class="social-link" title="Email"><i
+                            class='bx bx-envelope'></i></a>
+                    <a href="https://www.instagram.com/misty_3008" target="_blank" class="social-link"
+                        title="Instagram"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-container animate-float">
+                    <div class="profile-glow"></div>
+                    <div class="profile-ring ring-1"></div>
+                    <div class="profile-ring ring-2"></div>
+                    <div class="profile-img-wrapper">
+                        <img src="WhatsApp Image 2026-04-25 at 11.03.22 AM.jpeg" alt="Priya Mondal" class="profile-img">
+                    </div>
+                    <!-- Floating Tech Pills -->
+                    <div class="tech-pill pill-1">React</div>
+                    <div class="tech-pill pill-2">Python</div>
+                    <div class="tech-pill pill-3">Node.js</div>
+                    <div class="tech-pill pill-4">Java</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-label"><span>// </span>about me</div>
+            <h2 class="section-title">Who I <span class="text-gradient">Am</span></h2>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a <strong class="text-cosmic">Full Stack Developer</strong> and passionate coder who is crazy
+                        about convention, consistency, and constraints. I'm deeply interested in competitive programming
+                        and contributing to the tech community.</p>
+                    <p>Apart from tech, I love public speaking and delivering speeches. I'm always open to challenges
+                        and continuously learning.</p>
+
+                    <div class="about-stats">
+                        <div class="stat-card glass">
+                            <div class="stat-number text-gradient">90+</div>
+                            <div class="stat-label">WPM Typing</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-number text-gradient">10+</div>
+                            <div class="stat-label">Projects Built</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-number text-gradient">5+</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+
+                    <div class="about-facts">
+                        <div class="fact"><i class='bx bx-code-alt fact-icon'></i> Passionate competitive programmer
+                        </div>
+                        <div class="fact"><i class='bx bx-brain fact-icon'></i> Fascinated by AI & Machine Learning
+                        </div>
+                        <div class="fact"><i class='bx bx-microphone fact-icon'></i> Love public speaking</div>
+                        <div class="fact"><i class='bx bx-infinite fact-icon'></i> Always open to new challenges</div>
+                    </div>
+
+                    <a href="resume.html" target="_blank" class="btn-primary">Download CV <i
+                            class='bx bx-download'></i></a>
+                </div>
+
+                <div class="about-img-wrapper">
+                    <div class="about-img-frame glass">
+                        <img src="WhatsApp Image 2026-04-25 at 11.03.22 AM.jpeg" alt="Priya Mondal" class="about-img">
+                    </div>
+                    <div class="code-snippet glass">
+                        <div class="code-dots"><span></span><span></span><span></span></div>
+                        <pre class="code-content"><span class="code-keyword">const</span> priya = {
+  role: <span class="code-string">"Developer"</span>,
+  passion: <span class="code-string">"Building"</span>,
+  status: <span class="code-string">"Learning 🚀"</span>
+};</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section — Cosmic Singularity -->
+    <section class="stack" id="stack">
+        <div class="singularity-container">
+            <div class="singularity-header">
+                <div class="section-label" style="text-align:center"><span>// </span>singularity</div>
+                <h2 class="section-title" style="text-align:center">Where every technology <span
+                        class="text-gradient">Integrate</span> into one</h2>
+                <p class="section-subtitle" style="text-align:center">Technologies I work with — orbiting the
+                    singularity</p>
+            </div>
+
+            <div class="singularity-canvas-wrap">
+                <canvas id="singularityCanvas"></canvas>
+                <button class="sound-toggle" id="soundToggle" title="Toggle cosmic sound">
+                    <i class='bx bx-volume-mute'></i>
+                    <span>Black Hole Sound</span>
+                </button>
+            </div>
+
+            <!-- Tech Arsenal Grid -->
+            <div class="arsenal-wrap">
+                <div class="arsenal-label"><span>// </span>tech arsenal</div>
+                <h3 class="arsenal-title">Tools that <span class="text-gradient">power</span> the craft</h3>
+                <div class="arsenal-grid">
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">LANGUAGES</div>
+                        <div class="acat-tags">
+                            <span class="atag">Java</span><span class="atag">Python</span><span
+                                class="atag">JavaScript</span><span class="atag">C</span>
+                        </div>
+                    </div>
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">FRONTEND</div>
+                        <div class="acat-tags">
+                            <span class="atag">HTML5</span><span class="atag">CSS3</span><span
+                                class="atag">React.js</span><span class="atag">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">BACKEND</div>
+                        <div class="acat-tags">
+                            <span class="atag">Node.js</span><span class="atag">Express.js</span><span class="atag">REST
+                                API</span>
+                        </div>
+                    </div>
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">MACHINE LEARNING</div>
+                        <div class="acat-tags">
+                            <span class="atag">ML</span><span class="atag">NLP</span><span
+                                class="atag">Scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">DATABASE</div>
+                        <div class="acat-tags">
+                            <span class="atag">MongoDB</span><span class="atag">MySQL</span><span
+                                class="atag">SQLite</span>
+                        </div>
+                    </div>
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">TOOLS</div>
+                        <div class="acat-tags">
+                            <span class="atag">Git</span><span class="atag">GitHub</span><span class="atag">VS
+                                Code</span><span class="atag">Linux</span><span class="atag">Socket.io</span>
+                        </div>
+                    </div>
+                    <div class="arsenal-category glass">
+                        <div class="acat-title">IOT</div>
+                        <div class="acat-tags">
+                            <span class="atag">Arduino</span><span class="atag">Sensors</span><span
+                                class="atag">Embedded C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-container">
+            <div class="section-label"><span>// </span>my work</div>
+            <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+            <p class="section-subtitle">A selection of projects I've built</p>
+
+            <div class="projects-grid">
+
+                <div class="project-card glass group">
+                    <div class="project-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=800&auto=format&fit=crop"
+                            alt="AI Chatbot" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-view-btn">View Project <i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="proj-tag">Python</span>
+                            <span class="proj-tag">NLP</span>
+                            <span class="proj-tag">React</span>
+                        </div>
+                        <h3 class="project-title">AI Chatbot</h3>
+                        <p class="project-desc">An intelligent conversational AI chatbot powered by natural language
+                            processing, capable of understanding context and providing smart, human-like responses in
+                            real time.</p>
+                        <div class="project-links">
+                            <a href="#" class="proj-link"><i class='bx bxl-github'></i> Code</a>
+                            <a href="#" class="proj-link proj-link-live"><i class='bx bx-link-external'></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass group">
+                    <div class="project-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=800&auto=format&fit=crop"
+                            alt="Calculator" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-view-btn">View Project <i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="proj-tag">HTML</span>
+                            <span class="proj-tag">CSS</span>
+                            <span class="proj-tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Scientific Calculator</h3>
+                        <p class="project-desc">A fully functional scientific calculator with advanced mathematical
+                            operations and clean UI.</p>
+                        <div class="project-links">
+                            <a href="#" class="proj-link"><i class='bx bxl-github'></i> Code</a>
+                            <a href="#" class="proj-link proj-link-live"><i class='bx bx-link-external'></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card glass group">
+                    <div class="project-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop"
+                            alt="Bank Server UPI" class="project-img">
+                        <div class="project-overlay">
+                            <a href="#" class="project-view-btn">View Project <i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tags">
+                            <span class="proj-tag">Node.js</span>
+                            <span class="proj-tag">Express</span>
+                            <span class="proj-tag">MongoDB</span>
+                        </div>
+                        <h3 class="project-title">Bank Server with UPI App</h3>
+                        <p class="project-desc">A full-stack banking web application with UPI payment integration,
+                            supporting real-time balance updates, fund transfers, transaction history, and secure user
+                            authentication.</p>
+                        <div class="project-links">
+                            <a href="#" class="proj-link"><i class='bx bxl-github'></i> Code</a>
+                            <a href="#" class="proj-link proj-link-live"><i class='bx bx-link-external'></i> Live</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="section-container">
+            <div class="section-label"><span>// </span>trajectory</div>
+            <h2 class="section-title">My <span class="text-gradient">Journey</span> (Since 2023)</h2>
+
+            <div class="timeline">
+                <!-- 2023 -->
+                <div class="timeline-item tl-left">
+                    <div class="tl-card glass">
+                        <span class="tl-year"><i class='bx bxs-map-pin'></i> 2023</span>
+                        <h3 class="tl-title">Foundation Phase</h3>
+                        <ul class="tl-list">
+                            <li>Started B.Tech in Electronics and Computer Science at Techno Main Salt Lake.</li>
+                            <li>Built core programming fundamentals in Java, Python, and Data Structures.</li>
+                            <li>Explored web basics (HTML, CSS) and began understanding problem-solving.</li>
+                        </ul>
+                    </div>
+                    <div class="tl-dot"></div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="timeline-item tl-right">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card glass">
+                        <span class="tl-year"><i class='bx bxs-map-pin'></i> 2024</span>
+                        <h3 class="tl-title">Exploration &amp; Skill Building</h3>
+                        <ul class="tl-list">
+                            <li>Dived into full-stack development using React and backend technologies.</li>
+                            <li>Started learning Machine Learning concepts and practical implementation.</li>
+                            <li>Built initial projects combining frontend + backend logic.</li>
+                            <li>Completed NPTEL certification in Java.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="timeline-item tl-left">
+                    <div class="tl-card glass">
+                        <span class="tl-year"><i class='bx bxs-map-pin'></i> 2025</span>
+                        <h3 class="tl-title">Building Real-World Systems</h3>
+                        <ul class="tl-list">
+                            <li>Developed full-stack applications with Node.js, React, and MongoDB.</li>
+                            <li>Participated in hackathons and competitive coding contests.</li>
+                            <li>Completed Industrial Automation Internship at IIATCA, Kolkata — certified by IIATCA
+                                &amp; Mitsubishi Electric.</li>
+                            <li>Joined IET and engaged in technical communities.</li>
+                        </ul>
+                    </div>
+                    <div class="tl-dot"></div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="timeline-item tl-right">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card glass">
+                        <span class="tl-year"><i class='bx bxs-map-pin'></i> 2026</span>
+                        <h3 class="tl-title">Advanced Integration &amp; Scaling</h3>
+                        <ul class="tl-list">
+                            <li>Focused on combining AI + Full Stack to build scalable intelligent systems.</li>
+                            <li>Improved deployment, API design, and real-time system integration skills.</li>
+                            <li>Actively preparing for internships in Web Development and AI/ML.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Future -->
+                <div class="timeline-item tl-left">
+                    <div class="tl-card glass tl-future">
+                        <span class="tl-year"><i class='bx bx-rocket'></i> 2027+</span>
+                        <h3 class="tl-title">Vision Ahead</h3>
+                        <ul class="tl-list">
+                            <li>Aiming to become a skilled Full Stack + AI Engineer.</li>
+                            <li>Focused on building production-level systems and impactful AI solutions.</li>
+                            <li>Targeting top tech companies and innovative startups.</li>
+                        </ul>
+                    </div>
+                    <div class="tl-dot tl-dot-future"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="section-container">
+            <div class="section-label"><span>// </span>honors</div>
+            <h2 class="section-title">Achievements &amp; <span class="text-gradient">Recognition</span></h2>
+
+            <div class="achievements-grid">
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-trophy'></i></div>
+                    <h3 class="ach-title">Smart India Hackathon &mdash; Participated</h3>
+                    <p class="ach-desc">Selected among top teams for proposing an innovative real-world solution in a
+                        national-level competition.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-laptop'></i></div>
+                    <h3 class="ach-title">IBM Bootcamp &mdash; Participant</h3>
+                    <p class="ach-desc">Intensive hands-on training in modern development practices, system design, and
+                        rapid prototyping.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-building-house'></i></div>
+                    <h3 class="ach-title">Industrial Automation Internship &mdash; IIATCA</h3>
+                    <p class="ach-desc">Completed industrial automation internship at IIATCA (International Institute
+                        for Advanced Training on Control and Automation), Kolkata. Completed project report on Walong
+                        Control System and received training certificates from IIATCA &amp; Mitsubishi Electric.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-group'></i></div>
+                    <h3 class="ach-title">Member &mdash; IET</h3>
+                    <p class="ach-desc">Active member engaged in technical communities, learning initiatives, and
+                        discussions.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-book-open'></i></div>
+                    <h3 class="ach-title">Academic Excellence &mdash; B.Tech (ECS)</h3>
+                    <p class="ach-desc">Consistently maintained strong academic performance across DSA, DBMS, OS, and
+                        core engineering subjects.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-network-chart'></i></div>
+                    <h3 class="ach-title">Project-Based Learning</h3>
+                    <p class="ach-desc">Built and deployed multiple Full Stack apps, turning theory into real-world
+                        systems.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-chip'></i></div>
+                    <h3 class="ach-title">Technical Skill Development</h3>
+                    <p class="ach-desc">Actively learning across Full Stack Development, Machine Learning, and modern
+                        web technologies.</p>
+                </div>
+                <div class="achievement-card glass">
+                    <div class="ach-icon"><i class='bx bx-code-alt'></i></div>
+                    <h3 class="ach-title">Hackathon &amp; Competitive Coding</h3>
+                    <p class="ach-desc">Regular participant in coding contests and hackathons &mdash; focused on problem
+                        solving and teamwork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="contact-center">
+                <div class="section-label" style="text-align:center; justify-content:center;"><span>// </span>let's
+                    build something</div>
+                <h2 class="contact-heading">Have an idea worth <span class="text-gradient-italic">launching?</span></h2>
+                <p class="contact-subtext">I'm always open to collaborating on ambitious projects in full-stack
+                    development and intelligent systems.</p>
+                <a href="mailto:mistymondal2004@gmail.com" class="btn-cta" id="startConversationBtn">
+                    Start a conversation <i class='bx bx-link-external'></i>
+                </a>
+
+                <div class="social-cards">
+                    <a href="mailto:mistymondal2004@gmail.com" class="social-card glass" id="emailCard">
+                        <i class='bx bx-envelope'></i>
+                        <span class="sc-label">EMAIL</span>
+                        <span class="sc-value">mistymondal2004@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/Priya28082004" target="_blank" rel="noopener noreferrer"
+                        class="social-card glass" id="githubCard">
+                        <i class='bx bxl-github'></i>
+                        <span class="sc-label">GITHUB</span>
+                        <span class="sc-value">@Priya28082004</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/priya-mondal-b58893323/" target="_blank"
+                        rel="noopener noreferrer" class="social-card glass" id="linkedinCard"
+                        title="LinkedIn requires login to view profiles">
+                        <i class='bx bxl-linkedin'></i>
+                        <span class="sc-label">LINKEDIN</span>
+                        <span class="sc-value">linkedin.com/in/priya-mondal-b58893323</span>
+                    </a>
+                    <a href="https://www.instagram.com/misty_3008" target="_blank" rel="noopener noreferrer"
+                        class="social-card glass" id="instagramCard">
+                        <i class='bx bxl-instagram'></i>
+                        <span class="sc-label">INSTAGRAM</span>
+                        <span class="sc-value">@misty_3008</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-text">&copy; 2026 Priya Mondal &mdash; Crafted in the Macrocosm.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="singularity.js"></script>
+    <script src="splash.js"></script>
+</body>
+
+</html>
