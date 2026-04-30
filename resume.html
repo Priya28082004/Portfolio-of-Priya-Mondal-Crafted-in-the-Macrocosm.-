@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priya Mondal — Resume</title>
+    <meta name="description" content="Resume of Priya Mondal — Full Stack Developer & CS Student">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --bg: oklch(8% .03 270);
+            --fg: oklch(98% .01 270);
+            --card: oklch(12% .04 270);
+            --muted: oklch(70% .04 270);
+            --primary: oklch(70% .22 250);
+            --secondary: oklch(55% .28 295);
+            --border: oklch(30% .05 270 / .4);
+            --gradient-cosmic: linear-gradient(135deg, oklch(70% .22 250), oklch(55% .28 295));
+            --glass-bg: oklch(12% .04 270 / .6);
+            --glass-border: oklch(100% 0 0 / .08);
+            --font-display: 'Space Grotesk', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--font-display);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== TOP NAV BAR ===== */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: oklch(8% .03 270 / .92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: .75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-bar-logo {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--fg);
+            text-decoration: none;
+        }
+
+        .top-bar-logo span {
+            color: var(--primary);
+        }
+
+        .top-bar-actions {
+            display: flex;
+            gap: .75rem;
+            align-items: center;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .45rem 1.1rem;
+            background: transparent;
+            border: 1px solid oklch(70% .22 250 / .35);
+            border-radius: 2rem;
+            color: var(--fg);
+            font-size: .85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all .2s;
+            font-family: var(--font-display);
+        }
+
+        .btn-back:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .45rem 1.2rem;
+            background: var(--gradient-cosmic);
+            border: none;
+            border-radius: 2rem;
+            color: oklch(8% .03 270);
+            font-size: .85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: var(--font-display);
+        }
+
+        .btn-print:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 20px oklch(70% .22 250 / .4);
+        }
+
+        /* ===== RESUME WRAPPER ===== */
+        .resume-wrapper {
+            max-width: 900px;
+            margin: 5rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+
+        /* ===== RESUME CARD ===== */
+        .resume-card {
+            background: oklch(10% .03 270);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px oklch(5% .02 270 / .7);
+        }
+
+        /* Header */
+        .resume-header {
+            background: linear-gradient(135deg, oklch(18% .08 250), oklch(13% .06 280));
+            border-bottom: 1px solid oklch(70% .22 250 / .15);
+            padding: 2.5rem 2.5rem 2rem;
+        }
+
+        .resume-name {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            background: var(--gradient-cosmic);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: .2rem;
+        }
+
+        .resume-title {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-family: var(--font-mono);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: .9rem;
+        }
+
+        .resume-tagline {
+            color: var(--muted);
+            font-size: .95rem;
+            max-width: 580px;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+        }
+
+        .resume-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .875rem;
+            color: oklch(80% .04 270);
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: oklch(80% .04 270);
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        /* Body Grid */
+        .resume-body {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 0;
+        }
+
+        .resume-col {
+            padding: 2rem 2.5rem;
+        }
+
+        .resume-col-right {
+            border-left: 1px solid var(--glass-border);
+        }
+
+        /* Section */
+        .res-section {
+            margin-bottom: 2rem;
+        }
+
+        .res-section-title {
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1.1rem;
+            padding-bottom: .5rem;
+            border-bottom: 1px solid oklch(70% .22 250 / .2);
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .res-section-title i {
+            font-size: .9rem;
+        }
+
+        /* Education items */
+        .edu-item {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .edu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-degree {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--fg);
+            margin-bottom: .15rem;
+        }
+
+        .edu-school {
+            font-size: .9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: .3rem;
+        }
+
+        .edu-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: .78rem;
+            color: var(--muted);
+            font-family: var(--font-mono);
+            margin-bottom: .3rem;
+        }
+
+        .edu-board {
+            font-size: .8rem;
+            color: oklch(55% .04 270);
+            margin-bottom: .3rem;
+        }
+
+        .edu-grade {
+            font-size: .82rem;
+            color: var(--fg);
+            font-weight: 600;
+        }
+
+        .edu-grade::before {
+            content: '● ';
+            color: var(--primary);
+        }
+
+        /* About section */
+        .about-text {
+            font-size: .9rem;
+            color: var(--muted);
+            line-height: 1.75;
+        }
+
+        /* Personal profile */
+        .profile-item {
+            display: flex;
+            gap: .6rem;
+            margin-bottom: .5rem;
+            font-size: .88rem;
+        }
+
+        .profile-label {
+            color: var(--muted);
+            min-width: 130px;
+            flex-shrink: 0;
+        }
+
+        .profile-val {
+            color: var(--fg);
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .skill-chip {
+            padding: .3rem .85rem;
+            background: oklch(70% .22 250 / .08);
+            border: 1px solid oklch(70% .22 250 / .2);
+            border-radius: 2rem;
+            font-size: .8rem;
+            color: var(--fg);
+            font-family: var(--font-mono);
+            transition: all .2s;
+        }
+
+        .skill-chip:hover {
+            background: oklch(70% .22 250 / .15);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Certificates */
+        .cert-item {
+            margin-bottom: .9rem;
+            padding-left: .75rem;
+            border-left: 2px solid oklch(70% .22 250 / .3);
+        }
+
+        .cert-name {
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--fg);
+        }
+
+        .cert-issuer {
+            font-size: .78rem;
+            color: var(--primary);
+            font-family: var(--font-mono);
+            font-style: italic;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: .9rem;
+            display: flex;
+            gap: .5rem;
+            align-items: flex-start;
+        }
+
+        .project-num {
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: .1rem;
+            flex-shrink: 0;
+        }
+
+        .project-name {
+            font-size: .88rem;
+            color: var(--fg);
+            line-height: 1.5;
+        }
+
+        /* Languages */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .65rem;
+        }
+
+        .lang-name {
+            font-size: .88rem;
+            color: var(--fg);
+            font-weight: 600;
+        }
+
+        .lang-level {
+            font-size: .75rem;
+            color: var(--primary);
+            font-family: var(--font-mono);
+            background: oklch(70% .22 250 / .1);
+            border: 1px solid oklch(70% .22 250 / .2);
+            padding: .15rem .6rem;
+            border-radius: 1rem;
+        }
+
+        /* Hobbies */
+        .hobby-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .hobby-chip {
+            padding: .3rem .85rem;
+            background: oklch(55% .28 295 / .08);
+            border: 1px solid oklch(55% .28 295 / .2);
+            border-radius: 2rem;
+            font-size: .8rem;
+            color: var(--secondary);
+            font-family: var(--font-mono);
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                color: #111;
+            }
+
+            .top-bar {
+                display: none;
+            }
+
+            .resume-wrapper {
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .resume-card {
+                border-radius: 0;
+                box-shadow: none;
+                border: none;
+            }
+
+            .resume-header {
+                background: #1a2a4a;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .resume-name {
+                -webkit-text-fill-color: white;
+                color: white;
+            }
+
+            .resume-title {
+                color: #7eb8f7;
+            }
+
+            .resume-tagline,
+            .contact-item,
+            .about-text {
+                color: #555;
+            }
+
+            .res-section-title {
+                color: #2563eb;
+                border-color: #2563eb44;
+            }
+
+            .edu-degree,
+            .cert-name,
+            .project-name,
+            .lang-name,
+            .profile-val {
+                color: #111;
+            }
+
+            .edu-school,
+            .cert-issuer,
+            .lang-level {
+                color: #2563eb;
+            }
+
+            .edu-meta,
+            .edu-board,
+            .edu-grade,
+            .profile-label {
+                color: #777;
+            }
+
+            .skill-chip {
+                background: #e0eaff;
+                border-color: #2563eb44;
+                color: #1e3a8a;
+            }
+
+            .hobby-chip {
+                background: #f0e8ff;
+                border-color: #7c3aed44;
+                color: #5b21b6;
+            }
+
+            .resume-col-right {
+                border-left-color: #e5e7eb;
+            }
+
+            .cert-item {
+                border-left-color: #2563eb;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 680px) {
+            .resume-body {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-col-right {
+                border-left: none;
+                border-top: 1px solid var(--glass-border);
+            }
+
+            .resume-col {
+                padding: 1.5rem;
+            }
+
+            .resume-header {
+                padding: 1.75rem 1.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-bar">
+        <a href="index.html" class="top-bar-logo">
+            <span>&lt;</span>PM<span>/&gt;</span>
+        </a>
+        <div class="top-bar-actions">
+            <a href="index.html" class="btn-back"><i class='bx bx-arrow-back'></i> Back to Portfolio</a>
+            <button class="btn-print" onclick="window.print()"><i class='bx bx-download'></i> Download PDF</button>
+        </div>
+    </div>
+
+    <!-- Resume Card -->
+    <div class="resume-wrapper">
+        <div class="resume-card">
+
+            <!-- Header -->
+            <div class="resume-header">
+                <h1 class="resume-name">PRIYA MONDAL</h1>
+                <div class="resume-title">Full Stack Developer &amp; CS Student</div>
+                <div class="resume-tagline">A fast-learning B.Tech student in Electronics and Computer Science, eager to
+                    apply my knowledge of programming and Data Structures &amp; Algorithms to real-world applications.
+                    Seeking opportunities to enhance my technical skills and contribute effectively to an organization's
+                    success.</div>
+                <div class="resume-contacts">
+                    <div class="contact-item">
+                        <i class='bx bx-envelope'></i>
+                        <a href="mailto:mistymondal2004@gmail.com">mistymondal2004@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-phone'></i>
+                        <span>+91 9635400814</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-map'></i>
+                        <span>Vill-Ghola, P.O-Jara, Dist.-Paschim Medinipur, Pin-721232, West Bengal, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bxl-linkedin'></i>
+                        <a href="https://www.linkedin.com/in/priya-mondal-b58893323/"
+                            target="_blank">linkedin.com/in/priya-mondal-b58893323</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bxl-github'></i>
+                        <a href="https://github.com/Priya28082004" target="_blank">github.com/Priya28082004</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body -->
+            <div class="resume-body">
+
+                <!-- Left Column -->
+                <div class="resume-col">
+
+                    <!-- Education -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-graduation'></i> Education</div>
+
+                        <div class="edu-item">
+                            <div class="edu-degree">B.Tech — Electronics and Computer Science (ECS)</div>
+                            <div class="edu-school">Techno Main Salt Lake</div>
+                            <div class="edu-meta">
+                                <span>08/2023 — Present</span>
+                                <span>Kolkata, India</span>
+                            </div>
+                            <div class="edu-grade">CGPA: 7.83</div>
+                        </div>
+
+                        <div class="edu-item">
+                            <div class="edu-degree">Class XII</div>
+                            <div class="edu-school">Jara High School</div>
+                            <div class="edu-meta">
+                                <span>03/2021 — 06/2022</span>
+                                <span>Jara, India</span>
+                            </div>
+                            <div class="edu-board">West Bengal Board of Higher Secondary Education</div>
+                            <div class="edu-grade">Percentage: 91.3%</div>
+                        </div>
+
+                        <div class="edu-item">
+                            <div class="edu-degree">Class X</div>
+                            <div class="edu-school">Jara Jaganmohini Balika Vidyalaya</div>
+                            <div class="edu-meta">
+                                <span>03/2019 — 03/2020</span>
+                                <span>Jara, India</span>
+                            </div>
+                            <div class="edu-board">West Bengal Board of Secondary Education</div>
+                            <div class="edu-grade">Percentage: 87.43%</div>
+                        </div>
+                    </div>
+
+                    <!-- About Me -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-user'></i> About Me</div>
+                        <p class="about-text">A fast-learning B.Tech student in Electronics and Computer Science, eager
+                            to apply knowledge of programming and Data Structures &amp; Algorithms to real-world
+                            applications. Seeking opportunities to enhance technical skills and contribute effectively
+                            to an organization's success.</p>
+                    </div>
+
+                    <!-- Personal Profile -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-id-card'></i> Personal Profile</div>
+                        <div class="profile-item">
+                            <span class="profile-label">Date of Birth</span>
+                            <span class="profile-val">28 August 2004</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Marital Status</span>
+                            <span class="profile-val">Single</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Languages</span>
+                            <span class="profile-val">English, Bengali, Hindi</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Hobbies</span>
+                            <span class="profile-val">Learning new things, Listening Music, Dancing</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column -->
+                <div class="resume-col resume-col-right">
+
+                    <!-- Skills -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-code-alt'></i> Skills</div>
+                        <div class="skills-wrap">
+                            <span class="skill-chip">C Programming</span>
+                            <span class="skill-chip">DSA</span>
+                            <span class="skill-chip">Java</span>
+                            <span class="skill-chip">HTML5</span>
+                            <span class="skill-chip">CSS3</span>
+                            <span class="skill-chip">JavaScript</span>
+                            <span class="skill-chip">React.js</span>
+                            <span class="skill-chip">Node.js</span>
+                            <span class="skill-chip">MySQL / SQL+</span>
+                            <span class="skill-chip">MongoDB</span>
+                            <span class="skill-chip">Machine Learning</span>
+                            <span class="skill-chip">OOP</span>
+                            <span class="skill-chip">IoT</span>
+                            <span class="skill-chip">MERN Stack</span>
+                            <span class="skill-chip">Git &amp; GitHub</span>
+                            <span class="skill-chip">Socket.io</span>
+                        </div>
+                    </div>
+
+                    <!-- Certificates -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-award'></i> Certificates</div>
+                        <div class="cert-item">
+                            <div class="cert-name">Programming in Java (NPTEL)</div>
+                            <div class="cert-issuer">NPTEL</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">Industrial Automation Training &amp; Internship</div>
+                            <div class="cert-issuer">IIATCA (International Institute for Advanced Training on Control
+                                and Automation), Kolkata &amp; Mitsubishi Electric — Project: Walong Control System
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">IBM Bootcamp — Participant</div>
+                            <div class="cert-issuer">IBM</div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">Smart India Hackathon — Participated</div>
+                            <div class="cert-issuer">Government of India</div>
+                        </div>
+                    </div>
+
+                    <!-- Projects -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-code-block'></i> Projects</div>
+                        <div class="project-item">
+                            <span class="project-num">01.</span>
+                            <span class="project-name">Smart Agricultural Monitoring System — Hardware &amp; Website
+                                (Ongoing)</span>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-num">02.</span>
+                            <span class="project-name">Developing a Banking Web Application with UPI (Ongoing)</span>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-num">03.</span>
+                            <span class="project-name">Smart Helmet — IoT-based safety device</span>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-num">04.</span>
+                            <span class="project-name">AI Chatbot — NLP-powered conversational assistant</span>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-num">05.</span>
+                            <span class="project-name">Scientific Calculator — Fully functional with clean UI</span>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-globe'></i> Languages</div>
+                        <div class="lang-item">
+                            <span class="lang-name">English</span>
+                            <span class="lang-level">Professional Proficiency</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">Bengali</span>
+                            <span class="lang-level">Native</span>
+                        </div>
+                        <div class="lang-item">
+                            <span class="lang-name">Hindi</span>
+                            <span class="lang-level">Elementary Proficiency</span>
+                        </div>
+                    </div>
+
+                    <!-- Platforms / Links -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-link'></i> Platforms</div>
+                        <div class="cert-item">
+                            <div class="cert-name">LinkedIn</div>
+                            <div class="cert-issuer"><a href="https://www.linkedin.com/in/priya-mondal-b58893323/"
+                                    target="_blank" style="color:inherit">linkedin.com/in/priya-mondal-b58893323</a>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-name">GitHub</div>
+                            <div class="cert-issuer"><a href="https://github.com/Priya28082004" target="_blank"
+                                    style="color:inherit">github.com/Priya28082004</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Hobbies -->
+                    <div class="res-section">
+                        <div class="res-section-title"><i class='bx bx-happy'></i> Hobbies</div>
+                        <div class="hobby-wrap">
+                            <span class="hobby-chip">Learning new things</span>
+                            <span class="hobby-chip">Listening Music</span>
+                            <span class="hobby-chip">Dancing</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
